@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery DApp</title>
+    <script type="module" src="app.js"></script>
+    <style>
+        .number-button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lottery Ticket Minting DApp</h1>
+
+    <!-- Step 1: Connect Wallet -->
+    <div id="connectSection">
+        <button id="connectButton">Connect Wallet</button>
+    </div>
+
+    <!-- Step 2: Show Winning Pool and Prize Information -->
+    <div id="infoSection" class="hidden">
+        <h2>Winning Pool: <span id="winningPool">0</span> GOLDT</h2>
+        <h3>First Prizes:</h3>
+        <ul id="prizesList">
+            <li id="firstPrize">1st Prize: 0 GOLDT</li>
+            <li id="secondPrize">2nd Prize: 0 GOLDT</li>
+            <li id="thirdPrize">3rd Prize: 0 GOLDT</li>
+        </ul>
+    </div>
+
+    <!-- Step 3: Minting Section -->
+    <div id="mintingSection" class="hidden">
+        <input type="text" id="recipient" placeholder="Recipient Address" disabled>
+        <input type="number" id="amount" placeholder="GoldenTickets Amount" min="420">
+        <input type="text" id="numbers" placeholder="Numbers (comma separated)" disabled>
+        <input type="text" id="threePartVariable" placeholder="Three Part Variable">
+        <button id="mintButton">Mint NFT</button>
+        
+        <h3>Select Numbers (1-45):</h3>
+        <div id="numberButtons"></div>
+    </div>
+
+    <script>
+        // Create buttons for numbers 1-45
+        for (let i = 1; i <= 45; i++) {
+            const button = document.createElement('button');
+            button.innerText = i;
+            button.classList.add('number-button');
+            document.getElementById('numberButtons').appendChild(button);
+        }
+    </script>
+</body>
+</html>
